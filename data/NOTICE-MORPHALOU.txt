@@ -1,0 +1,10 @@
+Morphalou 3.1 — lexique morphologique du français
+ATILF / CNRS — ORTOLANG
+Référence persistante : https://hdl.handle.net/11403/morphalou/v3.1
+Données distribuées sous LGPL-LR. Le texte de la licence est joint dans
+LICENSE-OMEGA-LGPL-LR.txt. Le fichier de conjugaison du site est une forme
+réorganisée des données morphologiques Morphalou, complétée par Lefff 3.4
+et par OMEGA-Ω pour les formes simples manquantes.
+
+Citation : Analyse et traitement informatique de la langue française
+(ATILF) (2023). Morphalou [Lexique]. ORTOLANG.

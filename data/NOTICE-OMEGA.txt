@@ -1,0 +1,87 @@
+OMEGA-Ω — Lexiques ouverts & POS-tagger français
+==================================================
+
+Les lexiques et modèles du correcteur/dictée OMEGA-Ω, retravaillés à la
+main (tri à zéro faux positif, POS-tagger, clés phonétiques, curation) et
+réunis ici en un seul paquet. Le français n'appartient à personne :
+réutilise-les librement, pour n'importe quel projet.
+
+Merci aux ressources amont dont ces données partent — Lexique 4
+(lexique.org), le Wiktionnaire français (via kaikki.org) et Universal
+Dependencies French-GSD (universaldependencies.org), en CC BY-SA 4.0 ;
+et, depuis septembre 2026, Morphalou 3.1 (ATILF/CNRS, ortolang.fr), sous
+LGPL-LR : le lexique orthographique et le genre accentué en contiennent des
+formes fléchies (≈ 486 000 formes verbales, noms, adjectifs, adverbes).
+Par correction on partage donc dans le même esprit : crédite OMEGA-Ω et
+ces sources si tu réutilises, garde-le ouvert, et joins le texte de la
+LGPL-LR (LICENSE-LGPL-LR.txt) avec toute redistribution des fichiers qui
+en dérivent (speller.tsv.gz, genre-accentue.json.gz, conjugaison.json,
+prononciations-morphalou.json, troisieme-personne-pluriel.txt.gz,
+genre-noms-verbes-rares.json).
+
+Rien de privé ici : ni corpus personnel, ni WiCoPaCo, ni OQLF.
+
+FICHIERS
+--------
+- speller.tsv.gz
+    Lexique orthographique — ~741 000 formes (correction, accents, non-mots ; forme, fréquence ‰, catégorie).
+    Source : Lexique 4 + Wiktionnaire + Morphalou 3.1 (LGPL-LR)
+- genre-accentue.json.gz
+    Genre des noms, formes accentuées (accord du déterminant et de l’adjectif) — hors noms épicènes, qui ont les deux genres (un/une peintre) et ne peuvent donc trancher aucun accord.
+    Source : Lexique 4 + Wiktionnaire + Morphalou 3.1 (LGPL-LR)
+- genre-noms.tsv.gz
+    Genre des noms à genre non ambigu (accord).
+    Source : Lexique 4 + Wiktionnaire
+- pos-tagger-hmm.json.gz
+    POS-tagger HMM (émissions + transitions bigramme, décodage Viterbi).
+    Source : UD French-GSD + Lexique 4
+- pos-tagger-hmm.json
+    Même POS-tagger, JSON lisible (non compressé).
+    Source : UD French-GSD + Lexique 4
+- noun-post.txt.gz
+    Contextes post-nominaux (désambiguïsation nom/verbe en contexte).
+    Source : Lexique 4
+- accord-sujet-verbe-lm.json.gz
+    Modèle de langue trigramme élagué pour l’arbitrage de l’accord sujet-verbe.
+    Source : UD French-GSD
+- confusables.json
+    Groupes de confusables (homophones + paronymes) avec sens (vigilance verte).
+    Source : Lexique 4 + Wiktionnaire
+- morpho.json
+    Morphologie : radicaux (md/mb).
+    Source : Lexique 4
+- homophones-phonetiques.json
+    Groupes d’homophones (clé phonétique).
+    Source : Lexique 4
+- elision.txt
+    Mots à apostrophe (élision) pour le rappel — sources sûres uniquement.
+    Source : UD French-GSD + curé
+- pendu-lexique.json
+    Lexique du pendu : ~155 000 mots (en capitales, sans accent) avec prononciation, lemme, catégorie, fréquence ; les colonnes sont décrites en tête du fichier.
+    Source : Lexique 4
+- conjugaison.json
+    Table de conjugaison : 12 935 verbes, tous les temps et toutes les personnes (verbe → temps → personne → forme ; le verbe est écrit sans accent, les formes avec).
+    Source : Lexique 4 + Morphalou 3.1 (LGPL-LR)
+- prononciations-morphalou.json
+    Prononciations de ~305 000 formes de Morphalou, notées comme dans Lexique 4 (forme → prononciation).
+    Source : Morphalou 3.1 (LGPL-LR)
+- prenoms-genre.tsv.gz
+    Prénoms et leur genre (accord : « Marie est venue »).
+    Source : Wiktionnaire
+- troisieme-personne-pluriel.txt.gz
+    Formes en « -ent » qui sont des 3es personnes du pluriel (« -ent » muet : ils mangent), tirées de la table de conjugaison.
+    Source : Lexique 4 + Morphalou 3.1 (LGPL-LR)
+- definitions-courtes.json.gz
+    Définitions courtes par mot (jeu Double-Sens).
+    Source : Wiktionnaire
+- ponctuation-lm.json.gz
+    Modèle de ponctuation du texte dicté (où poser virgules et points).
+    Source : UD French-GSD + exemples du Wiktionnaire
+- genre-noms-verbes-rares.json
+    Genre des formes rares qui sont à la fois nom et verbe (« flue » : nom féminin), quand Morphalou et le Wiktionnaire sont d’accord.
+    Source : Morphalou 3.1 (LGPL-LR) + Wiktionnaire
+- LICENSE-LGPL-LR.txt
+    Texte de la licence LGPL-LR (Morphalou 3.1, ATILF/CNRS).
+    Source : ATILF/CNRS
+
+Généré par build_lexiques.py — OMEGA-Ω — https://omegapendu.com/

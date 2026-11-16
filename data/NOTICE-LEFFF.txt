@@ -1,0 +1,5 @@
+Données de conjugaison : Lefff (Lexique des formes fléchies du français), version 3.4,
+distribuées dans french-verbs-lefff 3.4.0. Les données dérivées du Lefff restent sous
+licence LGPL-LR. Sources : Benoît Sagot, Lefff ; RosaeNLG/french-verbs-lefff.
+Références : https://www.labri.fr/perso/clement/lefff/ et
+https://www.npmjs.com/package/french-verbs-lefff
