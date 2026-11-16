@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8f4">
+  <meta name="description" content="Explore les principaux temps et modes français, découvre leurs usages et entraîne-toi avec des quiz adaptés à ta classe.">
+  <title>Milo — Le labo des verbes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Le labo des verbes, accueil">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span class="brand-name"><b>Milo</b> <em>Le labo des verbes</em></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <a href="#parcours">Mon parcours</a>
+      <a href="#temps">Les temps</a>
+      <a href="#conjugueur">Conjuguer</a>
+      <a href="#jeux">Jouer</a>
+      <a class="nav-cta" href="#sources">Les sources <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <section class="hero section-wrap" id="accueil" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Un terrain d’exploration du français</p>
+        <h1 id="hero-title">Le verbe change.<br><span class="highlight">À toi de jouer.</span></h1>
+        <p class="hero-intro">Présent, passé, futur, conditionnel, subjonctif… Explore les formes, comprends quand les employer et entraîne-toi à ton rythme.</p>
+        <div class="hero-stats" aria-label="Contenu du conjugueur">
+          <div><strong id="verb-count">14 833</strong><span>verbes indexés</span></div>
+          <div><strong id="full-count">12 855</strong><span>paradigmes complets</span></div>
+          <div><strong>23 + 3</strong><span>formes et constructions</span></div>
+        </div>
+
+        <form class="profile-card" id="profile-form">
+          <div class="profile-heading">
+            <span class="profile-icon" aria-hidden="true">✳</span>
+            <div><strong>Ton parcours, à ton niveau</strong><span>Choisis une classe ou un âge pour ajuster les repères et les jeux.</span></div>
+          </div>
+          <div class="profile-fields">
+            <label for="class-select">Ta classe
+              <select id="class-select" name="class">
+                <option value="" selected>À choisir</option>
+                <option value="CP">CP</option><option value="CE1">CE1</option><option value="CE2">CE2</option>
+                <option value="CM1">CM1</option><option value="CM2">CM2</option><option value="6e">6e</option>
+                <option value="5e">5e</option><option value="4e">4e</option><option value="3e">3e</option>
+                <option value="lycee">Lycée</option><option value="adulte">Adulte / autre</option>
+              </select>
+            </label>
+            <label for="age-select">Ton âge
+              <select id="age-select" name="age">
+                <option value="" selected>À choisir</option>
+                <option value="6-7">6–7 ans</option><option value="8-9">8–9 ans</option>
+                <option value="10-11">10–11 ans</option><option value="12-14">12–14 ans</option>
+                <option value="15+">15 ans et +</option>
+              </select>
+            </label>
+          </div>
+          <button class="button button-primary" type="submit">Voir mon parcours <span aria-hidden="true">→</span></button>
+          <p class="profile-note">Ton choix reste sur cet appareil. Pas de compte à créer.</p>
+        </form>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-art-top"><span class="art-label">UNE ACTION</span><span class="art-spark">✳</span></div>
+        <div class="time-orbit orbit-one"></div><div class="time-orbit orbit-two"></div>
+        <div class="time-chip chip-past"><small>HIER</small><strong>j’ai joué</strong></div>
+        <div class="time-chip chip-now"><small>MAINTENANT</small><strong>je joue</strong></div>
+        <div class="time-chip chip-future"><small>DEMAIN</small><strong>je jouerai</strong></div>
+        <svg class="orbit-arrow" viewBox="0 0 470 300" fill="none">
+          <path d="M34 207C94 75 184 73 252 137s114 67 183-43" stroke="#176b6b" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 11"/>
+          <path d="m421 92 15-8-1 17" stroke="#176b6b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="79" cy="155" r="10" fill="#438b7e"/><circle cx="266" cy="153" r="10" fill="#83a85a"/><circle cx="412" cy="113" r="10" fill="#d3ad46"/>
+          <path d="M72 235h322" stroke="#2e2527" stroke-opacity=".14" stroke-width="2"/>
+          <path d="M72 228v14m161-14v14m161-14v14" stroke="#2e2527" stroke-opacity=".24" stroke-width="2"/>
+        </svg>
+        <div class="art-sticker">3 repères<br>pour raconter</div>
+        <div class="art-foot">LE TEMPS DONNE UN INDICE <span>✦</span></div>
+      </div>
+    </section>
+
+    <section class="pathway section-wrap" id="parcours" aria-labelledby="path-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Un itinéraire qui te ressemble</p><h2 id="path-title">On avance à ton rythme.</h2></div>
+        <p class="heading-note">Les repères suivent les grandes étapes de l’école, mais tu peux tout explorer quand tu veux.</p>
+      </div>
+      <div class="path-card">
+        <div class="path-copy">
+          <div class="path-number"><span>TON POINT DE DÉPART</span><b>→</b><span>LA SUITE</span></div>
+          <h3 id="path-greeting">On commence par le présent ?</h3>
+          <p id="path-description">Trouve le verbe dans une phrase, puis regarde comment il change avec son sujet.</p>
+          <div class="suggested-pills" id="suggested-pills" aria-label="Premiers repères suggérés"></div>
+          <p class="path-fineprint">Ce sont des repères souples : le programme et l’ordre des notions peuvent varier selon les classes.</p>
+        </div>
+        <div class="path-art" aria-hidden="true">
+          <svg viewBox="0 0 350 190">
+            <path d="M22 120c58-73 101 15 146-26s76-60 112-24 48 38 72-2" fill="none" stroke="#176b6b" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+            <circle cx="51" cy="90" r="34" fill="#dff0e6"/><circle cx="167" cy="99" r="34" fill="#e8efd9"/><circle cx="300" cy="71" r="34" fill="#e4edde"/>
+            <text x="51" y="96" text-anchor="middle" font-size="15" font-weight="700" font-family="system-ui" fill="#2e2527">hier</text>
+            <text x="167" y="105" text-anchor="middle" font-size="15" font-weight="700" font-family="system-ui" fill="#2e2527">ici</text>
+            <text x="300" y="77" text-anchor="middle" font-size="15" font-weight="700" font-family="system-ui" fill="#2e2527">après</text>
+            <path d="M51 158v-8m116 8v-8m133 8v-8" stroke="#176b6b" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="principles">
+        <article><span class="principle-icon lilac">01</span><h3>Le sujet donne un indice</h3><p><em>Je joue</em>, mais <em>nous jouons</em> : le verbe s’accorde avec son sujet.</p></article>
+        <article><span class="principle-icon mint">02</span><h3>Le temps situe l’action</h3><p>Présente, passée, à venir : le temps aide à placer l’action dans la phrase.</p></article>
+        <article><span class="principle-icon lemon">03</span><h3>Le mode donne une nuance</h3><p>Une certitude, un souhait, un ordre ou une condition : le mode colore le message.</p></article>
+      </div>
+    </section>
+
+    <section class="conjugueur section-wrap" id="conjugueur" aria-labelledby="conjugueur-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Le conjugueur</p><h2 id="conjugueur-title">Un verbe, tout son tableau.</h2></div>
+        <p class="heading-note">Tape un infinitif pour consulter les formes disponibles, du français courant aux formes littéraires répertoriées.</p>
+      </div>
+      <div class="conjugueur-layout">
+        <div class="conjugueur-controls">
+          <label for="verb-search">Quel verbe ?
+            <div class="search-wrap">
+              <input id="verb-search" list="verb-options" value="être" autocomplete="off" placeholder="ex. parler, finir, aller…">
+              <datalist id="verb-options"></datalist>
+              <div class="verb-suggestions" id="verb-suggestions" role="listbox" aria-label="Verbes correspondants" hidden></div>
+            </div>
+          </label>
+          <label for="mood-select">Quel mode ?
+            <select id="mood-select">
+              <option value="indicatif">Indicatif</option><option value="conditionnel">Conditionnel</option>
+              <option value="subjonctif">Subjonctif</option><option value="imperatif">Impératif</option>
+              <option value="infinitif">Infinitif</option><option value="participe">Participe</option>
+              <option value="gerondif">Gérondif</option><option value="constructions">Constructions utiles</option>
+            </select>
+          </label>
+          <label for="tense-select">Quel temps ou forme ?
+            <select id="tense-select"></select>
+          </label>
+          <label class="auxiliary-control" id="auxiliary-control" for="auxiliary-select" hidden>Auxiliaire selon le sens
+            <select id="auxiliary-select"><option value="auto">Usage le plus courant</option><option value="être">Être · déplacement sans complément direct</option><option value="avoir">Avoir · action avec complément direct</option></select>
+          </label>
+          <label class="agreement-control" for="agreement-select">Accord du participe passé
+            <select id="agreement-select"><option value="m">Masculin</option><option value="f">Féminin</option></select>
+          </label>
+          <p class="lookup-hint" id="lookup-hint" aria-live="polite">Les formes complètes se chargent au premier affichage.</p>
+          <div class="mini-note"><span aria-hidden="true">✳</span><p><strong>À observer :</strong> les temps composés associent souvent un auxiliaire et un participe passé.</p></div>
+        </div>
+        <div class="table-card">
+          <div class="table-topline"><div><span class="table-kicker">TABLEAU DE CONJUGAISON</span><h3 id="table-title">être <span>·</span> indicatif présent</h3></div><span class="table-stamp" aria-hidden="true">V.</span></div>
+          <div id="conjugation-table" class="conjugation-table" aria-live="polite"></div>
+          <p class="table-footnote" id="table-footnote">Les formes composées associent un auxiliaire et un participe passé.</p>
+        </div>
+      </div>
+      <div class="coverage-note"><span class="coverage-icon" aria-hidden="true">i</span><p id="coverage-note"><strong>Une base de 14 833 verbes indexés, dont 12 855 paradigmes complets :</strong> le comptage complet couvre les formes simples répertoriées, l’infinitif et les participes. Les temps composés sont construits avec les auxiliaires. Les formes absentes ou les verbes défectifs sont signalés ; les formes rares surcomposées et toutes les variantes ne sont pas exhaustives.</p></div>
+    </section>
+
+    <section class="time-guide section-wrap" id="temps" aria-labelledby="time-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">La carte des formes</p><h2 id="time-title">Les temps et formes à connaître.</h2></div>
+        <p class="heading-note">Explore les temps simples et composés les plus étudiés, puis les formes non personnelles. Clique sur une carte pour ouvrir le conjugueur.</p>
+      </div>
+      <div class="catalog-legend"><span><i class="legend-simple"></i> Temps simple</span><span><i class="legend-compound"></i> Temps composé</span><span><i class="legend-literary"></i> Forme surtout littéraire</span></div>
+      <div class="time-catalog" id="time-catalog"></div>
+      <div class="construction-panel">
+        <div class="construction-symbol" aria-hidden="true">↗</div>
+        <div><p class="eyebrow">Des constructions utiles, en plus</p><h3>Futur proche, passé récent, présent progressif</h3><p>Ce ne sont pas des temps de conjugaison au sens strict : ce sont des façons courantes de construire le verbe avec <em>aller</em>, <em>venir de</em> ou <em>être en train de</em>.</p></div>
+        <div class="construction-examples"><span>je vais lire</span><span>je viens de lire</span><span>je suis en train de lire</span></div>
+      </div>
+      <div class="grammar-note"><strong>Petit repère :</strong> selon les grammaires et les programmes, le conditionnel peut être présenté comme un mode ou comme un temps lié à l’indicatif. Ici, il a sa propre rubrique pour le retrouver facilement.</div>
+    </section>
+
+    <section class="games section-wrap" id="jeux" aria-labelledby="games-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Le terrain de jeu</p><h2 id="games-title">On s’entraîne ?</h2></div>
+        <p class="heading-note">Choisis une réponse, découvre l’indice et recommence. Les questions s’ajustent à la classe sélectionnée.</p>
+      </div>
+      <section class="study-settings" aria-labelledby="settings-title">
+        <div class="settings-intro"><span class="settings-symbol" aria-hidden="true">⚙</span><div><h3 id="settings-title">Tes réglages</h3><p>Adapte les jeux et l’affichage à ta façon d’apprendre.</p></div></div>
+        <div class="settings-grid">
+          <label for="quiz-level-select">Niveau des questions
+            <select id="quiz-level-select"><option value="auto">Selon ma classe</option><option value="base">Bases · CP à CE2</option><option value="intermediaire">Intermédiaire · CM1 à 6e</option><option value="avance">Avancé · collège et lycée</option></select>
+          </label>
+          <label for="quiz-topic-select">Thème
+            <select id="quiz-topic-select"><option value="tous">Tous les thèmes</option><option value="present">Présent</option><option value="passe">Passé</option><option value="futur">Futur</option><option value="modes">Modes</option></select>
+          </label>
+          <label for="quiz-order-select">Ordre des questions
+            <select id="quiz-order-select"><option value="aleatoire">Tirage au sort</option><option value="progression">Dans l’ordre</option></select>
+          </label>
+          <label for="answer-mode-select">Répondre
+            <select id="answer-mode-select"><option value="qcm">Choisir une réponse</option><option value="ecrit">Écrire la réponse</option></select>
+          </label>
+          <label for="reading-size-select">Taille de lecture
+            <select id="reading-size-select"><option value="standard">Standard</option><option value="grande">Grande</option></select>
+          </label>
+          <label for="palette-select">Palette de couleurs
+            <select id="palette-select"><option value="vermilion">Vermillon & framboise</option><option value="papaye">Papaye</option><option value="baie">Baie sombre</option></select>
+          </label>
+        </div>
+        <p class="settings-note" id="settings-note" aria-live="polite">Tirage au sort : les questions ne se répètent pas avant la fin du tour.</p>
+      </section>
+      <div class="game-grid">
+        <article class="game-card quiz-card">
+          <div class="game-label"><span class="game-emoji" aria-hidden="true">✳</span><span>QUIZ · LA BONNE FORME</span></div>
+          <h3>Complète la phrase</h3>
+          <p class="question" id="quiz-question">Demain, nous ___ (prendre) le train.</p>
+          <div class="answer-grid" id="quiz-answers" role="group" aria-label="Choisir une réponse"></div>
+          <div class="written-answer" id="written-answer" hidden><label for="written-response">Ta réponse<input id="written-response" autocomplete="off" placeholder="Écris la forme du verbe"></label><button class="button button-primary" id="check-written-answer" type="button">Vérifier</button></div>
+          <div class="game-feedback" id="quiz-feedback" aria-live="polite"></div>
+          <div class="game-bottom"><span id="quiz-score">0 bonne réponse</span><button class="text-button" id="next-question" type="button">Question suivante <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="game-card mystery-card">
+          <div class="game-label"><span class="game-emoji" aria-hidden="true">⌕</span><span>JEU · LE TEMPS MYSTÈRE</span></div>
+          <h3>Quel temps suis-je ?</h3>
+          <div class="mystery-paper"><span class="paper-pin" aria-hidden="true">✦</span><p id="mystery-clue">Je raconte souvent une habitude ou un décor dans le passé.</p></div>
+          <div class="answer-grid mystery-answers" id="mystery-answers" role="group" aria-label="Deviner le temps"></div>
+          <div class="game-feedback" id="mystery-feedback" aria-live="polite"></div>
+          <div class="game-bottom"><span>Indice du jour</span><button class="text-button" id="new-mystery" type="button">Nouvel indice <span aria-hidden="true">↻</span></button></div>
+        </article>
+      </div>
+      <div class="quick-question"><div class="question-mark" aria-hidden="true">?</div><div><span class="eyebrow">La bonne question</span><p>« Quand se passe l’action, et comment se déroule-t-elle ? »</p><span>Ce petit réflexe aide à choisir un temps qui a du sens.</span></div><a href="#temps">Revoir la carte des temps <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="sources section-wrap" id="sources" aria-labelledby="sources-title">
+      <div class="source-art" aria-hidden="true"><span class="source-letter">V</span><span class="source-orbit">↗</span><span class="source-dot">✳</span></div>
+      <div class="source-copy"><p class="eyebrow">Des repères fiables et transparents</p><h2 id="sources-title">Le français, avec de bonnes sources.</h2><p>Les parcours s’inspirent des programmes et ressources pédagogiques. La bibliothèque de conjugaison réunit des données ouvertes, créditées et accompagnées de leurs licences.</p>
+        <ul class="source-list">
+          <li><a href="https://www.education.gouv.fr/bo/2025/Hebdo16/MENE2504620A" target="_blank" rel="noreferrer">Ministère de l’Éducation nationale : programme de français cycle 3 <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://eduscol.education.gouv.fr/4740/ressources-d-accompagnement-du-programme-de-francais-au-cycle-2" target="_blank" rel="noreferrer">Éduscol : ressources pour le français au cycle 2 <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://eduscol.education.gouv.fr/4809/ressources-d-accompagnement-du-programme-de-francais-aux-cycles-2-et-3-etude-de-la-langue" target="_blank" rel="noreferrer">Éduscol : étude de la langue aux cycles 2 et 3 <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.labri.fr/perso/clement/lefff/" target="_blank" rel="noreferrer">Lefff : lexique électronique à large couverture <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://hdl.handle.net/11403/morphalou/v3.1" target="_blank" rel="noreferrer">Morphalou 3.1 : formes verbales, participes et flexions <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.academie-francaise.fr/soudre" target="_blank" rel="noreferrer">Académie française : les participes de « résoudre » <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://eduscol.education.fr/document/1872/download" target="_blank" rel="noreferrer">Éduscol : terminologie grammaticale <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://omega-pendu.pages.dev/donnees" target="_blank" rel="noreferrer">OMEGA-Ω : données ouvertes de conjugaison <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://ameliofrancais.ccdmd.qc.ca/ressources/1371/la-concordance-des-temps" target="_blank" rel="noreferrer">CCDMD : temps et concordance <span aria-hidden="true">↗</span></a></li>
+        </ul>
+        <p class="source-caveat">Les données sont assemblées depuis des lexiques ouverts et ne sont pas toutes vérifiées une à une. Les exemples et quiz servent à s’entraîner ; certaines variantes, locutions et formes surcomposées rares peuvent manquer. Pour un accord ou un emploi particulier, vérifie le contexte et les règles vues en classe. Les licences sont dans « data ».</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-wrap"><a class="brand" href="#accueil"><span class="brand-mark" aria-hidden="true">M</span><span class="brand-name"><b>Milo</b> <em>Le labo des verbes</em></span></a><p>Fait pour explorer la langue, une phrase à la fois.</p><a href="#accueil" class="back-top">Retour en haut ↑</a></footer>
+</body>
+</html>
