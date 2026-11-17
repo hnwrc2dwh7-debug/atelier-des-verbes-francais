@@ -1,17 +1,18 @@
-# Milo — Le labo des verbes
+# Milo — Le labo du français
 
-Mini-site interactif en français pour explorer la conjugaison, comprendre quelques usages des temps et s’entraîner avec des questions adaptées au niveau scolaire.
+Mini-site interactif pour explorer la conjugaison et réviser des repères de grammaire, d’orthographe, de vocabulaire, d’analyse de phrase et d’écriture.
 
 ## Contenu
 
-- 14 833 verbes indexés ; 12 855 paradigmes complets selon le contrôle des formes simples retenues, de l’infinitif et des participes.
+- 14 833 verbes indexés ; 12 855 paradigmes signalés complets selon le contrôle des formes simples retenues, de l’infinitif et des participes. Ce statut de couverture ne garantit pas que chaque forme a été validée une à une.
 - 23 temps et formes répartis entre les modes, plus trois constructions utiles (futur proche, passé récent et présent progressif).
 - Temps composés construits à partir des auxiliaires. Un choix d’auxiliaire est proposé pour plusieurs verbes dont l’emploi varie selon le sens.
-- Quiz à questions écrites ou à choix multiples, avec tirage aléatoire, filtres et questions générées à partir du dictionnaire.
+- Six rubriques de français : orthographe, grammaire, vocabulaire, analyse de phrase, lecture et écriture.
+- Quiz à questions écrites ou à choix multiples, avec tirage aléatoire, filtres et questions générées à partir du dictionnaire ou de fiches de notions.
 
 ## Limites pédagogiques
 
-Les lexiques sont assemblés automatiquement à partir de données ouvertes et ne sont pas vérifiés individuellement entrée par entrée. Le calcul des paradigmes complets porte sur les formes répertoriées par le site ; il ne garantit pas que chaque variante, locution, emploi ou forme surcomposée rare soit couverte. Les formes manquantes sont signalées. Pour un devoir noté, vérifie les cas rares avec le cours ou un dictionnaire de référence.
+Les lexiques sont assemblés automatiquement à partir de données ouvertes et ne sont pas vérifiés individuellement entrée par entrée. Le calcul des paradigmes complets porte sur les formes répertoriées par le site ; il ne garantit pas que chaque forme, variante, locution, emploi ou forme surcomposée rare soit correcte ou couverte. Les fiches de langue donnent des méthodes générales et ne remplacent pas un cours complet. Pour un devoir noté, vérifie les cas particuliers avec le cours ou un dictionnaire de référence.
 
 ## Lancer en local
 

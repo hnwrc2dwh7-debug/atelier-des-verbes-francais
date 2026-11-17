@@ -179,7 +179,7 @@ function renderConjugation(){
   auxiliaryControl.hidden=!canChooseAuxiliary;
   const auxiliary=auxiliaryFor(verb,canChooseAuxiliary?auxiliarySelect.value:'auto');
   document.getElementById('agreement-select').parentElement.hidden=!(selectedInfo?.kind==='compound'&&record&&auxiliary==='être');
-  if(!verbData){showError('La bibliothèque de conjugaison se charge…');return;}
+  if(!verbData){showError('Le grand dictionnaire se charge…');return;}
   if(!record){showError(verb?'Verbe absent de l’index. Essaie un infinitif français connu.':'Saisis un infinitif pour afficher son tableau.');return;}
   const result=makeRows(verb,mood,tense,gender,canChooseAuxiliary?auxiliarySelect.value:'auto');
   if(result.error){showError(result.error);document.getElementById('table-title').innerHTML=`${escapeHTML(record.v||verb)} <span>·</span> ${escapeHTML(simpleLabel(mood))}`;return;}
@@ -223,12 +223,16 @@ function setupConjugueur(){
   updateTenses();
   fetch('data/verbs.json').then(response=>{if(!response.ok)throw new Error('Bibliothèque indisponible');return response.json();}).then(data=>{
     verbData=data;
+    const verbRecords=Object.values(data.verbs||{});
+    data.meta.indexedVerbCount=verbRecords.length;
+    data.meta.completeVerbCount=verbRecords.filter(record=>record.complete===true).length;
+    data.meta.partialVerbCount=verbRecords.length-data.meta.completeVerbCount;
     document.getElementById('verb-count').textContent=data.meta.indexedVerbCount.toLocaleString('fr-FR');
     document.getElementById('full-count').textContent=data.meta.completeVerbCount.toLocaleString('fr-FR');
     for(const verb of QUICK_VERBS){const option=document.createElement('option');option.value=verb;document.getElementById('verb-options').appendChild(option);}
     renderConjugation();
     nextQuiz(true);
-  }).catch(()=>{document.getElementById('lookup-hint').textContent='La bibliothèque n’a pas pu se charger. Réessaie dans un instant.';showError('Impossible de charger le dictionnaire de verbes.');});
+  }).catch(()=>{document.getElementById('lookup-hint').textContent='Le dictionnaire n’a pas pu se charger. Vérifie ta connexion puis actualise la page.';showError('Vérifie ta connexion puis recharge le site.');});
 }
 
 const TIME_GROUPS = [
@@ -336,7 +340,8 @@ const QUIZ_QUESTIONS=[
 ];
 let quizDeck=[],quizDeckIndex=0,quizDeckSignature='';
 function shuffle(values){const result=[...values];for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}return result;}
-const QUIZ_PRONOUNS=['je','tu','il','nous','vous','ils'];
+const QUIZ_PERSON_INDICES=[1,3,4];
+const QUIZ_PRONOUNS=['tu','nous','vous'];
 const QUIZ_TEMPLATES=[
   {min:0,topic:'present',code:'P',prompt:p=>`En ce moment, ${p} ___ (verbe).`,why:'Le présent situe une action actuelle ou une habitude.'},
   {min:3,topic:'passe',code:'I',prompt:p=>`Autrefois, ${p} ___ souvent (verbe).`,why:'L’imparfait exprime souvent une habitude ou un décor passé.'},
@@ -353,7 +358,7 @@ function generatedQuizQuestions(limit=60){
   while(questions.length<limit&&attempts<limit*35){
     attempts++;
     const template=QUIZ_TEMPLATES[Math.floor(Math.random()*QUIZ_TEMPLATES.length)];
-    const index=Math.floor(Math.random()*6),record=records[Math.floor(Math.random()*records.length)];
+    const pronounIndex=Math.floor(Math.random()*QUIZ_PRONOUNS.length),index=QUIZ_PERSON_INDICES[pronounIndex],record=records[Math.floor(Math.random()*records.length)];
     const answer=record.f[template.code]?.[index],key=`${record.v}|${template.code}|${index}`;
     if(!answer||answer==='NA'||seen.has(key))continue;
     const alternatives=[];
@@ -363,8 +368,8 @@ function generatedQuizQuestions(limit=60){
     }
     if(alternatives.length<2)continue;
     seen.add(key);
-    const subject=index===0&&/^[aeiouyàâäéèêëîïôöùûüÿ]/i.test(answer)?'j’':QUIZ_PRONOUNS[index];
-    questions.push({min:template.min,topic:template.topic,sentence:template.prompt(subject).replace('(verbe)',record.v),verb:record.v,answer,choices:shuffle([answer,...shuffle(alternatives).slice(0,2)]),why:template.why});
+    const subject=QUIZ_PRONOUNS[pronounIndex];
+    questions.push({min:template.min,topic:template.topic,sentence:template.prompt(subject).replace('(verbe)','('+record.v+')'),verb:record.v,answer,choices:shuffle([answer,...shuffle(alternatives).slice(0,2)]),why:template.why});
   }
   return questions;
 }

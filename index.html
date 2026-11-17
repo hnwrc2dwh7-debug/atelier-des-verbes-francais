@@ -4,20 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#176b6b">
-  <meta name="description" content="Explore les principaux temps et modes français, découvre leurs usages et entraîne-toi avec des quiz adaptés à ta classe.">
-  <title>Milo — Le labo des verbes</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <meta name="description" content="Explore les verbes, la grammaire, l’orthographe et le vocabulaire français avec des repères et des quiz adaptés à ta classe.">
+  <title>Milo — Le labo du français</title>
+  <link rel="stylesheet" href="styles.css?v=2">
+  <script src="app.js?v=2" defer></script>
+  <script src="language.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="site-header">
-    <a class="brand" href="#accueil" aria-label="Le labo des verbes, accueil">
+    <a class="brand" href="#accueil" aria-label="Milo, le labo du français, accueil">
       <span class="brand-mark" aria-hidden="true">M</span>
-      <span class="brand-name"><b>Milo</b> <em>Le labo des verbes</em></span>
+      <span class="brand-name"><b>Milo</b> <em>Le labo du français</em></span>
     </a>
     <nav aria-label="Navigation principale">
       <a href="#parcours">Mon parcours</a>
+      <a href="#explorer">Explorer</a>
       <a href="#temps">Les temps</a>
       <a href="#conjugueur">Conjuguer</a>
       <a href="#jeux">Jouer</a>
@@ -29,12 +31,12 @@
     <section class="hero section-wrap" id="accueil" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span> Un terrain d’exploration du français</p>
-        <h1 id="hero-title">Le verbe change.<br><span class="highlight">À toi de jouer.</span></h1>
-        <p class="hero-intro">Présent, passé, futur, conditionnel, subjonctif… Explore les formes, comprends quand les employer et entraîne-toi à ton rythme.</p>
-        <div class="hero-stats" aria-label="Contenu du conjugueur">
+        <h1 id="hero-title">Les mots font la langue.<br><span class="highlight">À toi de jouer.</span></h1>
+        <p class="hero-intro">Des mots aux phrases, des accords aux verbes : explore les repères du français et entraîne-toi à ton rythme.</p>
+        <div class="hero-stats" aria-label="Quelques repères du site">
           <div><strong id="verb-count">14 833</strong><span>verbes indexés</span></div>
           <div><strong id="full-count">12 855</strong><span>paradigmes complets</span></div>
-          <div><strong>23 + 3</strong><span>formes et constructions</span></div>
+          <div><strong>6</strong><span>portes pour explorer</span></div>
         </div>
 
         <form class="profile-card" id="profile-form">
@@ -115,6 +117,73 @@
       </div>
     </section>
 
+    <section class="language-lab section-wrap" id="explorer" aria-labelledby="language-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Au-delà des verbes</p><h2 id="language-title">Le français, par petits morceaux.</h2></div>
+        <p class="heading-note">Des méthodes simples pour comprendre les mots, les phrases et les textes. Chaque notion a ses exceptions : vérifie les cas particuliers dans ton cours.</p>
+      </div>
+      <div class="language-topics">
+        <article class="language-topic-card orthography-card">
+          <div class="topic-card-top"><span class="topic-number">01</span><span class="topic-tag">ÉCRIRE JUSTE</span></div>
+          <h3>Orthographe</h3>
+          <p>Les homophones se prononcent pareil, mais ne s’écrivent pas de la même façon.</p>
+          <div class="rule-example"><span><b>a</b> ou <b>à</b></span><small>Essaie de remplacer <i>a</i> par « avait ».</small></div>
+          <div class="rule-example"><span><b>son</b> ou <b>sont</b></span><small><i>Sont</i> peut souvent devenir « étaient ».</small></div>
+          <div class="rule-example"><span><b>-er</b> ou <b>-é</b></span><small>Remplace par « vendre » ou « vendu » pour t’aider.</small></div>
+        </article>
+        <article class="language-topic-card grammar-card">
+          <div class="topic-card-top"><span class="topic-number">02</span><span class="topic-tag">OBSERVER</span></div>
+          <h3>Grammaire</h3>
+          <p>La <b>nature</b> donne l’identité d’un mot ; sa <b>fonction</b> indique son rôle dans la phrase.</p>
+          <div class="rule-example"><span>Le petit chat dort.</span><small><i>chat</i> est un nom ; « Le petit chat » est le sujet.</small></div>
+          <div class="rule-example"><span>Le chat attrape une balle.</span><small>« une balle » complète directement le verbe : COD.</small></div>
+        </article>
+        <article class="language-topic-card vocabulary-card">
+          <div class="topic-card-top"><span class="topic-number">03</span><span class="topic-tag">JOUER AVEC LES MOTS</span></div>
+          <h3>Vocabulaire</h3>
+          <p>Les mots ont des liens : sens proches ou opposés, familles, préfixes et suffixes.</p>
+          <div class="rule-example"><span>relire</span><small><i>re-</i> indique ici qu’on lit une nouvelle fois.</small></div>
+          <div class="rule-example"><span>lire · lecteur · lecture</span><small>Ces mots appartiennent à la même famille.</small></div>
+        </article>
+        <article class="language-topic-card sentence-card">
+          <div class="topic-card-top"><span class="topic-number">04</span><span class="topic-tag">DÉCOUPER LA PHRASE</span></div>
+          <h3>Phrase &amp; analyse</h3>
+          <p>Repère d’abord le verbe conjugué, puis cherche qui fait l’action et ce qui la complète.</p>
+          <div class="rule-example"><span>Les élèves lisent le texte.</span><small>Sujet : <i>Les élèves</i> · verbe : <i>lisent</i> · COD : <i>le texte</i>.</small></div>
+        </article>
+        <article class="language-topic-card writing-card">
+          <div class="topic-card-top"><span class="topic-number">05</span><span class="topic-tag">MIEUX S’EXPRIMER</span></div>
+          <h3>Écriture</h3>
+          <p>Organise tes idées et aide ton lecteur à suivre ton raisonnement.</p>
+          <div class="rule-example"><span>d’abord · ensuite · enfin</span><small>Ces connecteurs aident à présenter les étapes.</small></div>
+          <div class="rule-example"><span>parce que · donc · pourtant</span><small>Ils marquent des liens différents : cause, conséquence, opposition.</small></div>
+        </article>
+        <article class="language-topic-card reading-card">
+          <div class="topic-card-top"><span class="topic-number">06</span><span class="topic-tag">COMPRENDRE UN TEXTE</span></div>
+          <h3>Lecture &amp; textes</h3>
+          <p>Repère les personnages, le lieu, le moment et les indices qui aident à comprendre ce qui n’est pas dit directement.</p>
+          <div class="rule-example"><span>Qui raconte ? Où ? Quand ?</span><small>Ces questions donnent des repères avant d’interpréter un passage.</small></div>
+          <div class="rule-example"><span>Relire les indices</span><small>Appuie une interprétation sur des mots précis du texte.</small></div>
+        </article>
+      </div>
+      <section class="language-challenge" aria-labelledby="language-challenge-title">
+        <div class="language-challenge-copy">
+          <p class="eyebrow">Le défi de la langue</p>
+          <h3 id="language-challenge-title">Une question, plusieurs domaines.</h3>
+          <p id="language-question" aria-live="polite">Le jeu prépare une question…</p>
+          <label for="language-topic-select">Choisir un thème
+            <select id="language-topic-select"><option value="tous">Tous les thèmes</option><option value="orthographe">Orthographe</option><option value="grammaire">Grammaire</option><option value="vocabulaire">Vocabulaire</option><option value="phrase">Phrase &amp; analyse</option><option value="ecriture">Écriture</option><option value="lecture">Lecture &amp; textes</option></select>
+          </label>
+        </div>
+        <div class="language-challenge-play">
+          <div class="language-answers" id="language-answers" role="group" aria-label="Réponses possibles"></div>
+          <p class="language-feedback" id="language-feedback" role="status" aria-live="polite"></p>
+          <div class="language-challenge-bottom"><span><b id="language-topic-label">FRANÇAIS</b><small id="language-score">0 bonne réponse</small></span><button class="button button-primary" id="next-language-question" type="button">Autre question <span aria-hidden="true">→</span></button></div>
+        </div>
+      </section>
+      <p class="language-source-note">Ces rappels sont des points de départ, pas une grammaire complète. <a href="#sources">Voir les ressources pédagogiques</a>.</p>
+    </section>
+
     <section class="conjugueur section-wrap" id="conjugueur" aria-labelledby="conjugueur-title">
       <div class="section-heading">
         <div><p class="eyebrow">Le conjugueur</p><h2 id="conjugueur-title">Un verbe, tout son tableau.</h2></div>
@@ -146,7 +215,7 @@
           <label class="agreement-control" for="agreement-select">Accord du participe passé
             <select id="agreement-select"><option value="m">Masculin</option><option value="f">Féminin</option></select>
           </label>
-          <p class="lookup-hint" id="lookup-hint" aria-live="polite">Les formes complètes se chargent au premier affichage.</p>
+          <p class="lookup-hint" id="lookup-hint" aria-live="polite">Le grand dictionnaire se charge. Le premier affichage peut prendre quelques secondes.</p>
           <div class="mini-note"><span aria-hidden="true">✳</span><p><strong>À observer :</strong> les temps composés associent souvent un auxiliaire et un participe passé.</p></div>
         </div>
         <div class="table-card">
@@ -176,7 +245,7 @@
     <section class="games section-wrap" id="jeux" aria-labelledby="games-title">
       <div class="section-heading">
         <div><p class="eyebrow">Le terrain de jeu</p><h2 id="games-title">On s’entraîne ?</h2></div>
-        <p class="heading-note">Choisis une réponse, découvre l’indice et recommence. Les questions s’ajustent à la classe sélectionnée.</p>
+        <p class="heading-note">Révise les verbes, puis entraîne-toi aussi en orthographe, en grammaire, en vocabulaire et dans l’analyse de phrase.</p>
       </div>
       <section class="study-settings" aria-labelledby="settings-title">
         <div class="settings-intro"><span class="settings-symbol" aria-hidden="true">⚙</span><div><h3 id="settings-title">Tes réglages</h3><p>Adapte les jeux et l’affichage à ta façon d’apprendre.</p></div></div>
@@ -184,7 +253,7 @@
           <label for="quiz-level-select">Niveau des questions
             <select id="quiz-level-select"><option value="auto">Selon ma classe</option><option value="base">Bases · CP à CE2</option><option value="intermediaire">Intermédiaire · CM1 à 6e</option><option value="avance">Avancé · collège et lycée</option></select>
           </label>
-          <label for="quiz-topic-select">Thème
+          <label for="quiz-topic-select">Thème du quiz des verbes
             <select id="quiz-topic-select"><option value="tous">Tous les thèmes</option><option value="present">Présent</option><option value="passe">Passé</option><option value="futur">Futur</option><option value="modes">Modes</option></select>
           </label>
           <label for="quiz-order-select">Ordre des questions
@@ -243,6 +312,6 @@
     </section>
   </main>
 
-  <footer class="site-footer section-wrap"><a class="brand" href="#accueil"><span class="brand-mark" aria-hidden="true">M</span><span class="brand-name"><b>Milo</b> <em>Le labo des verbes</em></span></a><p>Fait pour explorer la langue, une phrase à la fois.</p><a href="#accueil" class="back-top">Retour en haut ↑</a></footer>
+  <footer class="site-footer section-wrap"><a class="brand" href="#accueil"><span class="brand-mark" aria-hidden="true">M</span><span class="brand-name"><b>Milo</b> <em>Le labo du français</em></span></a><p>Fait pour explorer la langue, une phrase à la fois.</p><a href="#accueil" class="back-top">Retour en haut ↑</a></footer>
 </body>
 </html>
