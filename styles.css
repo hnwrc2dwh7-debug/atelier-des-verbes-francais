@@ -16,6 +16,7 @@ html[data-palette="sauge"]{--accent:#49785b;--accent-dark:#31543f;--accent-pale:
 h1,h2,.path-copy h3,.table-topline h3,.catalog-heading h3,.construction-panel h3,.game-card h3,.source-copy h2{font-family:ui-serif,Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.04em}
 .brand-name b{font-weight:900}.brand-name em{font-style:normal;color:var(--accent);font-size:.82em;font-weight:700}
 .auxiliary-control[hidden]{display:none}
+.answer-option.wrong{border-color:#c66d63;background:#fff0ed;color:#8f4139}.game-feedback.incorrect{color:#8f4139}
 
 .language-lab{padding-top:14px;padding-bottom:82px}
 .language-lab .section-heading{margin-bottom:25px}

@@ -318,16 +318,26 @@ function updateProfile(className,age){
 }
 function setupProfile(){
   const form=document.getElementById('profile-form'),classSelect=document.getElementById('class-select'),ageSelect=document.getElementById('age-select');
-  try{const saved=JSON.parse(localStorage.getItem('atelier-profile')||'{}');if(saved.class&&classSelect.querySelector(`option[value="${CSS.escape(saved.class)}"]`))classSelect.value=saved.class;if(saved.age&&ageSelect.querySelector(`option[value="${CSS.escape(saved.age)}"]`))ageSelect.value=saved.age;}catch{}
+  try{const saved=JSON.parse(localStorage.getItem('atelier-profile')||'{}');if(saved.class&&classSelect.querySelector(`option[value="${CSS.escape(saved.class)}"]`))classSelect.value=saved.class;else if(saved.age&&ageSelect.querySelector(`option[value="${CSS.escape(saved.age)}"]`))ageSelect.value=saved.age;}catch{}
   updateProfile(classSelect.value,ageSelect.value);
-  form.addEventListener('submit',event=>{event.preventDefault();const profile={class:classSelect.value,age:ageSelect.value};try{localStorage.setItem('atelier-profile',JSON.stringify(profile));}catch{}updateProfile(profile.class,profile.age);nextQuiz(true);nextMystery();document.getElementById('parcours').scrollIntoView({behavior:'smooth'});});
-  const changeProfile=()=>{updateProfile(classSelect.value,ageSelect.value);nextQuiz(true);nextMystery();};
-  classSelect.addEventListener('change',changeProfile);ageSelect.addEventListener('change',changeProfile);
+  const changeProfile=()=>{const profile={class:classSelect.value,age:ageSelect.value};try{localStorage.setItem('atelier-profile',JSON.stringify(profile));}catch{}updateProfile(profile.class,profile.age);nextQuiz(true);nextMystery();};
+  classSelect.addEventListener('change',()=>{if(classSelect.value)ageSelect.value='';changeProfile();});
+  ageSelect.addEventListener('change',()=>{if(ageSelect.value)classSelect.value='';changeProfile();});
+  form.addEventListener('submit',event=>{event.preventDefault();changeProfile();document.getElementById('parcours').scrollIntoView({behavior:'smooth'});});
 }
 
 const QUIZ_QUESTIONS=[
   {min:0,topic:'present',sentence:'En ce moment, je ___ une histoire.',verb:'lire',answer:'lis',choices:['lis','lirai','lisais'],why:'« En ce moment » indique une action au présent.'},
+  {min:2,topic:'present',sentence:'Aujourd’hui, nous ___ un nouveau jeu.',verb:'inventer',answer:'inventons',choices:['inventons','inventions','inventerons'],why:'« Aujourd’hui » situe l’action au présent ; avec « nous », inventer prend la terminaison -ons.'},
+  {min:5,topic:'present',sentence:'D’habitude, vous ___ vos affaires avant de sortir.',verb:'préparer',answer:'préparez',choices:['prépariez','préparerez','préparez'],why:'« D’habitude » exprime ici une habitude au présent ; avec « vous », la terminaison est -ez.'},
   {min:0,topic:'present',sentence:'Nous ___ dans la cour.',verb:'jouer',answer:'jouons',choices:['jouons','jouions','jouerons'],why:'Avec « nous », le présent de jouer se termine par -ons.'},
+  {min:0,topic:'passe',sentence:'Hier, tu as ___ avec tes amis.',verb:'jouer',answer:'joué',choices:['joué','jouer','jouais'],why:'Après l’auxiliaire « as », on utilise le participe passé « joué » pour former le passé composé.'},
+  {min:0,topic:'futur',sentence:'Demain, je ___ une carte à ma cousine.',verb:'dessiner',answer:'dessinerai',choices:['dessine','dessinais','dessinerai'],why:'« Demain » indique une action future : « je dessinerai » est au futur simple.'},
+  {min:0,topic:'modes',sentence:'Dans « Je veux lire », « lire » est à l’…',verb:'lire',answer:'infinitif',choices:['infinitif','indicatif','impératif'],why:'Après « veux », « lire » reste à l’infinitif : c’est une forme non conjuguée du verbe.'},
+  {min:2,topic:'present',sentence:'En ce moment, tu ___ ton exercice.',verb:'finir',answer:'finis',choices:['finis','finissais','finiras'],why:'« En ce moment » situe l’action au présent ; avec « tu », finir se termine par -is.'},
+  {min:2,topic:'modes',sentence:'Dans « Elle aime dessiner », « dessiner » est à l’…',verb:'dessiner',answer:'infinitif',choices:['infinitif','indicatif','impératif'],why:'« Dessiner » n’est pas conjugué : c’est l’infinitif du verbe.'},
+  {min:5,topic:'futur',sentence:'D’ici demain, nous ___ déjà notre travail.',verb:'terminer',answer:'aurons terminé',choices:['terminerons','avons terminé','aurons terminé'],why:'Le futur antérieur présente une action qui sera achevée avant un repère futur.'},
+  {min:5,topic:'modes',sentence:'Dans « J’aimerais visiter Rome », « aimerais » est au…',verb:'aimer',answer:'conditionnel présent',choices:['futur simple','conditionnel présent','subjonctif présent'],why:'Le conditionnel présent peut exprimer un souhait ou une possibilité.'},
   {min:2,topic:'futur',sentence:'Demain, tu ___ au parc.',verb:'venir',answer:'viendras',choices:['viens','venais','viendras'],why:'« Demain » donne un indice : l’action est à venir.'},
   {min:2,topic:'passe',sentence:'Quand il était petit, il ___ souvent.',verb:'chanter',answer:'chantait',choices:['chante','chantait','chantera'],why:'Une habitude passée se raconte souvent à l’imparfait.'},
   {min:3,topic:'passe',sentence:'Hier, j’___ mon exercice.',verb:'finir',answer:'ai fini',choices:['finis','ai fini','finirai'],why:'Le passé composé associe « avoir » au participe passé « fini ».'},
